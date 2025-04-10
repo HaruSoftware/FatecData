@@ -1,0 +1,121 @@
+const scripts = [
+    "scripts.js",
+    "dados.js",
+    "respostas.js",
+    "nascimento.js"
+];
+
+scripts.forEach(script => {
+    const tag = document.createElement("script");
+    tag.src = script;
+    tag.async = false;
+    document.head.appendChild(tag);
+});
+
+const buttons = [
+    { icon: "fas fa-user-plus", text: "Total de respostas", onclick: "respostas()" },
+    { icon: "fas fa-clock", text: "Qual o período que cursa?", onclick: "SetData(11)" },
+    { icon: "fas fa-map", text: "Qual o estado você nasceu?", onclick: "SetData(17)" },
+    { icon: "fas fa-map", text: "Em qual cidade você reside?", onclick: "SetData(20)" },
+    { icon: "fa-solid fa-mars-and-venus", text: "Qual é o seu gênero?", onclick: "SetData(23)" },
+    { icon: "fas fa-birthday-cake", text: "Qual a sua data de nascimento?", onclick: "nascimento()" },
+    { icon: "fas fa-heart", text: "Qual é o seu estado civil?", onclick: "SetData(29)" },
+    { icon: "fas fa-wheelchair", text: "Você possui alguma necessidade especial?", onclick: "SetData(32)" },
+    { icon: "fas fa-child", text: "Quantos filhos você tem?", onclick: "SetData(35)" },
+    { icon: "fas fa-users", text: "Com quem você mora?", onclick: "SetData(38)" },
+    { icon: "fas fa-house-chimney-user", text: "Quantas pessoas moram no seu domicílio?", onclick: "SetData(41)" },
+    { icon: "fas fa-house", text: "Situação do domicílio em que você reside?", onclick: "SetData(44)" },
+    { icon: "fas fa-clock", text: "Há quanto tempo você mora neste domicílio?", onclick: "SetData(47)" },
+    { icon: "fas fa-money-bill-wave", text: "Qual é a faixa de renda mensal da sua família?", onclick: "SetData(50)" },
+    { icon: "fas fa-tv", text: "Televisores", onclick: "SetData(55)" },
+    { icon: "fas fa-compact-disc", text: "Video-cassetes ou DVD", onclick: "SetData(58)" },
+    { icon: "fas fa-podcast", text: "Rádios", onclick: "SetData(61)" },
+    { icon: "fas fa-car", text: "Automóveis", onclick: "SetData(64)" },
+    { icon: "fas fa-motorcycle", text: "Motocicletas", onclick: "SetData(67)" },
+    { icon: "fas fa-soap", text: "Máquinas de lavar", onclick: "SetData(70)" },
+    { icon: "fas fa-snowflake", text: "Geladeiras", onclick: "SetData(73)" },
+    { icon: "fas fa-mobile-alt", text: "Celulares", onclick: "SetData(76)" },
+    { icon: "fas fa-desktop", text: "Microcomputador de mesa/Desktop", onclick: "SetData(79)" },
+    { icon: "fas fa-laptop", text: "Notebook", onclick: "SetData(82)" },
+    { icon: "fas fa-phone", text: "Telefone fixo", onclick: "SetData(87)" },
+    { icon: "fas fa-globe", text: "Internet", onclick: "SetData(90)" },
+    { icon: "fas fa-tv", text: "TV por assinatura", onclick: "SetData(93)" },
+    { icon: "fas fa-person-dress", text: "Empregada mensalista", onclick: "SetData(96)" },
+    { icon: "fas fa-user-cog", text: "Você trabalha?", onclick: "SetData(99)" },
+    { icon: "fas fa-city", text: "Qual é seu vínculo com o emprego?", onclick: "SetData(102)" },
+    { icon: "fas fa-briefcase", text: "Qual a área do seu trabalho?", onclick: "SetData(105)" },
+    { icon: "fas fa-business-time", text: "Qual é o seu regime de trabalho?", onclick: "SetData(108)" },
+    { icon: "fas fa-building", text: "Qual empresa você trabalha?", onclick: "SetData(111)" },
+    { icon: "fas fa-notes-medical", text: "Você tem plano de saúde privado?", onclick: "SetData(114)" },
+    { icon: "fas fa-female", text: "Qual é o grau de escolaridade da sua mãe?", onclick: "SetData(117)" },
+    { icon: "fas fa-male", text: "Qual é o grau de escolaridade do seu pai?", onclick: "SetData(120)" },
+    { icon: "fas fa-book-reader", text: "Na sua vida escolar, você estudou...", onclick: "SetData(123)" },
+    { icon: "fas fa-home", text: "Em casa", onclick: "SetData(128)" },
+    { icon: "fas fa-briefcase", text: "No trabalho", onclick: "SetData(131)" },
+    { icon: "fas fa-school", text: "Na escola", onclick: "SetData(134)" },
+    { icon: "fas fa-map-marker-alt", text: "Em outros lugares", onclick: "SetData(137)" },
+    { icon: "fas fa-clipboard-list", text: "Para trabalhos profissionais", onclick: "SetData(142)" },
+    { icon: "fas fa-book", text: "Para trabalhos escolares", onclick: "SetData(145)" },
+    { icon: "fas fa-headphones-alt", text: "Para entretenimento (música, redes sociais,...)", onclick: "SetData(148)" },
+    { icon: "fas fa-envelope-open-text", text: "Para comunicação por e-mail", onclick: "SetData(151)" },
+    { icon: "fas fa-piggy-bank", text: "Para operações bancárias", onclick: "SetData(154)" },
+    { icon: "fas fa-shopping-cart", text: "Para compras eletrônicas", onclick: "SetData(157)" },
+    { icon: "fas fa-home", text: "Em casa (2)", onclick: "SetData(162)" },
+    { icon: "fas fa-briefcase", text: "No trabalho (2)", onclick: "SetData(165)" },
+    { icon: "fas fa-school", text: "Na escola (2)", onclick: "SetData(168)" },
+    { icon: "fas fa-map-marker-alt", text: "Em outros lugares (2)", onclick: "SetData(171)" },
+    { icon: "fas fa-clipboard-list", text: "Para trabalhos profissionais (2)", onclick: "SetData(176)" },
+    { icon: "fas fa-book", text: "Para trabalhos escolares (2)", onclick: "SetData(179)" },
+    { icon: "fas fa-headphones-alt", text: "Para entretenimento (2)", onclick: "SetData(182)" },
+    { icon: "fas fa-envelope-open-text", text: "Para comunicação por e-mail (2)", onclick: "SetData(185)" },
+    { icon: "fas fa-piggy-bank", text: "Para operações bancárias (2)", onclick: "SetData(188)" },
+    { icon: "fas fa-phone", text: "Para compras eletrônicas (2)", onclick: "SetData(191)" },
+    { icon: "fas fa-house", text: "Em casa (3)", onclick: "SetData(196)" },
+    { icon: "fas fa-city", text: "No trabalho (3)", onclick: "SetData(199)" },
+    { icon: "fas fa-building", text: "Na escola (3)", onclick: "SetData(202)" },
+    { icon: "fas fa-city", text: "Em outros lugares (3)", onclick: "SetData(205)" },
+    { icon: "fas fa-hard-hat", text: "Para trabalhos profissionais (3)", onclick: "SetData(210)" },
+    { icon: "fas fa-school", text: "Para trabalhos escolares (3)", onclick: "SetData(213)" },
+    { icon: "fas fa-headphones", text: "Para entretenimento (música, redes sociais,...) (3)", onclick: "SetData(216)" },
+    { icon: "fas fa-envelope", text: "Para comunicação por e-mail (3)", onclick: "SetData(219)" },
+    { icon: "fas fa-money-bill-wave", text: "Para operações bancarias (3)", onclick: "SetData(222)" },
+    { icon: "fas fa-phone", text: "Para compras eletrônicas (3)", onclick: "SetData(225)" },
+    { icon: "fas fa-tv", text: "Como você classifica seu conhecimento em informática?", onclick: "SetData(228)" },
+    { icon: "fab fa-windows", text: "Windows", onclick: "SetData(233)" },
+    { icon: "fab fa-linux", text: "Linux", onclick: "SetData(236)" },
+    { icon: "fas fa-file-alt", text: "Editores de textos (word, writer, ...)", onclick: "SetData(239)" },
+    { icon: "fas fa-file-excel", text: "Planilhas Eletrônicas (Excel, Cal, ...)", onclick: "SetData(242)" },
+    { icon: "fas fa-file-powerpoint", text: "Apresentadores (PowerPoint, Impress, ...)", onclick: "SetData(245)" },
+    { icon: "fas fa-briefcase", text: "Sistemas de Gestão Empresarial", onclick: "SetData(248)" },    
+    { icon: "fas fa-flag", text: "Inglês", onclick: "SetData(253)" },
+    { icon: "fas fa-flag", text: "Espanhol", onclick: "SetData(256)" },
+    { icon: "fas fa-flag", text: "Outros idiomas", onclick: "SetData(259)" },
+    { icon: "fas fa-tv", text: "Assiste TV", onclick: "SetData(264)" },
+    { icon: "fas fa-globe", text: "Usa internet", onclick: "SetData(267)" },
+    { icon: "fas fa-book", text: "Lê revistas", onclick: "SetData(270)" },
+    { icon: "fas fa-book", text: "Lê jornal", onclick: "SetData(273)" },
+    { icon: "fas fa-microphone", text: "Escuta rádio", onclick: "SetData(276)" },
+    { icon: "fab fa-twitter-square", text: "Usa redes sociais", onclick: "SetData(279)" },
+    { icon: "fas fa-users", text: "Conversa com os amigos", onclick: "SetData(282)" },
+    { icon: "fas fa-book", text: "Quantos livros você lê por ano (em média)?", onclick: "SetData(285)" },
+    { icon: "fas fa-paint-brush", text: "Você dedica parte do seu tempo para atividades voluntárias?", onclick: "SetData(291)" },
+    { icon: "fas fa-plus", text: "Qual religião você professa?", onclick: "SetData(294)" },
+    { icon: "fa fa-life-ring", text: "Quais fontes de entretenimento cultural você usa?", onclick: "SetData(297)" },
+    { icon: "fas fa-users", text: "Como você ficou sabendo da FATEC Franca?", onclick: "SetData(300)" },
+    { icon: "fas fa-question", text: "Por que você escolheu este curso?", onclick: "SetData(303)" },
+    { icon: "fas fa-question", text: "Qual sua maior expectativa quanto ao curso?", onclick: "SetData(306)" },
+    { icon: "fas fa-question", text: "Qual sua expectativa após se formar?", onclick: "SetData(309)" },
+    { icon: "fas fa-question", text: "Você já estudou nesta instituição?", onclick: "SetData(312)" },
+    { icon: "fas fa-question", text: "Você já fez algum curso técnico?", onclick: "SetData(315)" },
+    { icon: "fas fa-question", text: "Qual meio de transporte você utiliza para ir à faculdade?", onclick: "SetData(318)" },
+];
+
+const container = document.getElementById("menu-container");
+
+buttons.forEach(btn => {
+  const button = document.createElement("button");
+  button.className = "login-button";
+  button.setAttribute("onclick", btn.onclick);
+  button.innerHTML = `<i class="${btn.icon}"></i> ${btn.text}`;
+  container.appendChild(button);
+});
